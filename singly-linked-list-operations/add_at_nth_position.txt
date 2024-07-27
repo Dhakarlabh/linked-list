@@ -1,0 +1,16 @@
+public ListNode addAtNthPlace(ListNode head, int val, int n) {
+        ListNode newNode = new ListNode(val);
+        var dummy = new ListNode(0);
+        dummy.next=head;
+        var curr = dummy;
+        for(int i=0;curr!=null &&i<n-1;i++){
+            curr = curr.next;
+        }
+        if(curr == null){
+            return dummy.next;
+        }
+        newNode.next=curr.next;
+        curr.next = newNode;
+
+        return dummy.next;
+    }
